@@ -4,7 +4,7 @@ st.title("🎈 SimuLab")
 st.write(
     "Let's start finding!"
 )
-<!DOCTYPE html>
+
 <html lang="id">
 <head>
 <meta charset="UTF-8">
