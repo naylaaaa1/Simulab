@@ -9,7 +9,7 @@ st.write(
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SimuLab Indikator Asam Basa</title>
+<title>SimuLab — Indikator Asam Basa</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -31,7 +31,7 @@ st.write(
     background: var(--bg);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
-    min-height: 100;
+    min-height: 100vh;
     overflow-x: hidden;
   }
 
@@ -187,8 +187,6 @@ st.write(
     gap: 1.4rem;
   }
 
-  /* pH meter */
-  .ph-section {}
   .ph-label {
     font-family: 'Space Mono', monospace;
     font-size: 0.72rem;
@@ -548,13 +546,13 @@ const solutions = {
   HCl_1:      { name:'HCl 1 M',        ph:0,    type:'asam',   strong:true,  formula:'HCl → H⁺ + Cl⁻',              desc:'Asam kuat monoprotic. Terionisasi sempurna. pH = 0.' },
   HCl_01:     { name:'HCl 0.1 M',      ph:1,    type:'asam',   strong:true,  formula:'HCl → H⁺ + Cl⁻',              desc:'Asam kuat, konsentrasi rendah. pH = −log[HCl] = 1.' },
   HCl_001:    { name:'HCl 0.01 M',     ph:2,    type:'asam',   strong:true,  formula:'HCl → H⁺ + Cl⁻',              desc:'Asam kuat, sangat encer.' },
-  H2SO4_1:    { name:'H₂SO₄ 1 M',     ph:0,    type:'asam',   strong:true,  formula:'H₂SO₄ → 2H⁺ + SO₄²⁻',        desc:'Asam sulfat pekat. Sangat korosif dan eksotermis.' },
-  H2SO4_01:   { name:'H₂SO₄ 0.1 M',   ph:0.7,  type:'asam',   strong:true,  formula:'H₂SO₄ → 2H⁺ + SO₄²⁻',        desc:'Asam kuat diprotik. Menghasilkan 2 mol H⁺ per mol.' },
-  HNO3_1:     { name:'HNO₃ 1 M',      ph:0,    type:'asam',   strong:true,  formula:'HNO₃ → H⁺ + NO₃⁻',           desc:'Asam nitrat pekat. Oksidator kuat, berbahaya.' },
-  HNO3_01:    { name:'HNO₃ 0.1 M',    ph:1,    type:'asam',   strong:true,  formula:'HNO₃ → H⁺ + NO₃⁻',           desc:'Asam kuat, digunakan dalam analisis kimia.' },
+  H2SO4_1:    { name:'H₂SO₄ 1 M',      ph:0,    type:'asam',   strong:true,  formula:'H₂SO₄ → 2H⁺ + SO₄²⁻',        desc:'Asam sulfat pekat. Sangat korosif dan eksotermis.' },
+  H2SO4_01:   { name:'H₂SO₄ 0.1 M',    ph:0.7,  type:'asam',   strong:true,  formula:'H₂SO₄ → 2H⁺ + SO₄²⁻',        desc:'Asam kuat diprotik. Menghasilkan 2 mol H⁺ per mol.' },
+  HNO3_1:     { name:'HNO₃ 1 M',       ph:0,    type:'asam',   strong:true,  formula:'HNO₃ → H⁺ + NO₃⁻',            desc:'Asam nitrat pekat. Oksidator kuat, berbahaya.' },
+  HNO3_01:    { name:'HNO₃ 0.1 M',     ph:1,    type:'asam',   strong:true,  formula:'HNO₃ → H⁺ + NO₃⁻',            desc:'Asam kuat, digunakan dalam analisis kimia.' },
   HBr:        { name:'HBr 0.1 M',      ph:1,    type:'asam',   strong:true,  formula:'HBr → H⁺ + Br⁻',              desc:'Asam kuat halida. Terionisasi sempurna.' },
   HI:         { name:'HI 0.1 M',       ph:1,    type:'asam',   strong:true,  formula:'HI → H⁺ + I⁻',                desc:'Asam kuat terkuat di antara asam halida.' },
-  HClO4:      { name:'HClO₄ 0.1 M',   ph:1,    type:'asam',   strong:true,  formula:'HClO₄ → H⁺ + ClO₄⁻',         desc:'Asam perklorat — asam okso terkuat yang dikenal.' },
+  HClO4:      { name:'HClO₄ 0.1 M',    ph:1,    type:'asam',   strong:true,  formula:'HClO₄ → H⁺ + ClO₄⁻',          desc:'Asam perklorat — asam okso terkuat yang dikenal.' },
 
   // === ASAM LEMAH ===
   CH3COOH_1:  { name:'CH₃COOH 1 M',   ph:2.4,  type:'asam',   strong:false, formula:'CH₃COOH ⇌ CH₃COO⁻ + H⁺',     desc:'Asam asetat. Ka = 1.8×10⁻⁵. Komponen utama cuka.' },
@@ -576,7 +574,7 @@ const solutions = {
 
   // === NETRAL ===
   H2O:        { name:'H₂O',             ph:7,    type:'netral', strong:false, formula:'H₂O ⇌ H⁺ + OH⁻',              desc:'Air murni. [H⁺]=[OH⁻]=10⁻⁷ M, Kw = 10⁻¹⁴ pada 25°C.' },
-  NaCl:       { name:'NaCl 0.1 M',       ph:7,    type:'netral', strong:false, formula:'NaCl → Na⁺ + Cl⁻',             desc:'Garam dari asam kuat & basa kuat. Tidak terhidrolisis.' },
+  NaCl:       { name:'NaCl 0.1 M',       ph:7,    type:'netral', strong:false, formula:'NaCl → Na⁺ + Cl⁻',              desc:'Garam dari asam kuat & basa kuat. Tidak terhidrolisis.' },
   KNO3:       { name:'KNO₃ 0.1 M',      ph:7,    type:'netral', strong:false, formula:'KNO₃ → K⁺ + NO₃⁻',            desc:'Garam netral. Digunakan sebagai pupuk dan bahan peledak.' },
   Na2SO4:     { name:'Na₂SO₄ 0.1 M',    ph:7,    type:'netral', strong:false, formula:'Na₂SO₄ → 2Na⁺ + SO₄²⁻',       desc:'Garam netral dari NaOH dan H₂SO₄.' },
   glukosa:    { name:'Glukosa 0.1 M',    ph:7,    type:'netral', strong:false, formula:'C₆H₁₂O₆ (tidak terionisasi)',  desc:'Senyawa organik non-elektrolit. Tidak mengubah pH.' },
@@ -605,29 +603,29 @@ const solutions = {
   pyridine:   { name:'C₅H₅N 0.1 M',      ph:9.0,  type:'basa',   strong:false, formula:'C₅H₅N + H₂O ⇌ C₅H₅NH⁺ + OH⁻',desc:'Piridin. Kb = 1.9×10⁻⁹. Basa lemah, pelarut organik.' },
 
   // === BASA KUAT ===
-  NaOH_001:   { name:'NaOH 0.01 M',      ph:12,   type:'basa',   strong:true,  formula:'NaOH → Na⁺ + OH⁻',             desc:'Basa kuat encer. pH = 14 + log[NaOH].' },
-  NaOH_01:    { name:'NaOH 0.1 M',       ph:13,   type:'basa',   strong:true,  formula:'NaOH → Na⁺ + OH⁻',             desc:'Basa kuat umum di laboratorium. Kaustik, korosif.' },
-  NaOH_1:     { name:'NaOH 1 M',         ph:14,   type:'basa',   strong:true,  formula:'NaOH → Na⁺ + OH⁻',             desc:'Basa kuat pekat. Sangat korosif, merusak jaringan.' },
-  KOH_01:     { name:'KOH 0.1 M',        ph:13,   type:'basa',   strong:true,  formula:'KOH → K⁺ + OH⁻',               desc:'Kalium hidroksida. Basa kuat, digunakan dalam sabun cair.' },
-  KOH_1:      { name:'KOH 1 M',          ph:14,   type:'basa',   strong:true,  formula:'KOH → K⁺ + OH⁻',               desc:'Kalium hidroksida pekat. Lebih larut dari NaOH.' },
+  NaOH_001:   { name:'NaOH 0.01 M',      ph:12,   type:'basa',   strong:true,  formula:'NaOH → Na⁺ + OH⁻',              desc:'Basa kuat encer. pH = 14 + log[NaOH].' },
+  NaOH_01:    { name:'NaOH 0.1 M',       ph:13,   type:'basa',   strong:true,  formula:'NaOH → Na⁺ + OH⁻',              desc:'Basa kuat umum di laboratorium. Kaustik, korosif.' },
+  NaOH_1:     { name:'NaOH 1 M',         ph:14,   type:'basa',   strong:true,  formula:'NaOH → Na⁺ + OH⁻',              desc:'Basa kuat pekat. Sangat korosif, merusak jaringan.' },
+  KOH_01:     { name:'KOH 0.1 M',        ph:13,   type:'basa',   strong:true,  formula:'KOH → K⁺ + OH⁻',              desc:'Kalium hidroksida. Basa kuat, digunakan dalam sabun cair.' },
+  KOH_1:      { name:'KOH 1 M',          ph:14,   type:'basa',   strong:true,  formula:'KOH → K⁺ + OH⁻',              desc:'Kalium hidroksida pekat. Lebih larut dari NaOH.' },
   Ca_OH_2:    { name:'Ca(OH)₂ 0.1 M',   ph:12.3, type:'basa',   strong:true,  formula:'Ca(OH)₂ → Ca²⁺ + 2OH⁻',        desc:'Air kapur. Basa kuat diprotik, kelarutan terbatas.' },
   Ba_OH_2:    { name:'Ba(OH)₂ 0.1 M',   ph:13.0, type:'basa',   strong:true,  formula:'Ba(OH)₂ → Ba²⁺ + 2OH⁻',        desc:'Barium hidroksida. Basa kuat diprotik, lebih larut dari Ca(OH)₂.' },
-  LiOH:       { name:'LiOH 0.1 M',       ph:13,   type:'basa',   strong:true,  formula:'LiOH → Li⁺ + OH⁻',             desc:'Litium hidroksida. Basa kuat, digunakan dalam baterai.' },
+  LiOH:       { name:'LiOH 0.1 M',       ph:13,   type:'basa',   strong:true,  formula:'LiOH → Li⁺ + OH⁻',              desc:'Litium hidroksida. Basa kuat, digunakan dalam baterai.' },
   Mg_OH_2:    { name:'Mg(OH)₂ 0.01 M',  ph:10.5, type:'basa',   strong:true,  formula:'Mg(OH)₂ → Mg²⁺ + 2OH⁻',        desc:'Susu magnesia. Basa kuat, kelarutan sangat rendah.' },
 
   // === LARUTAN ALAMI ===
   cuka:       { name:'Cuka Makan',        ph:2.5,  type:'asam',   strong:false, formula:'CH₃COOH ~5% (0.83 M)',          desc:'Cuka dapur mengandung ~5% asam asetat. pH ≈ 2.4–3.4.' },
   jeruk:      { name:'Jus Jeruk',         ph:3.5,  type:'asam',   strong:false, formula:'Asam sitrat + asam askorbat',    desc:'Mengandung asam sitrat dan vitamin C. Segar dan asam.' },
-  apel:       { name:'Jus Apel',          ph:3.8,  type:'asam',   strong:false, formula:'Asam malat dominan',             desc:'Asam malat memberikan rasa asam pada apel. pH 3.3–4.0.' },
+  apel:       { name:'Jus Apel',          ph:3.8,  type:'asam',   strong:false, formula:'Asam malat dominan',              desc:'Asam malat memberikan rasa asam pada apel. pH 3.3–4.0.' },
   tomat:      { name:'Jus Tomat',         ph:4.2,  type:'asam',   strong:false, formula:'Asam sitrat + asam malat',       desc:'Campuran asam organik. Sumber likopen dan vitamin C.' },
   kopi:       { name:'Kopi',              ph:5.0,  type:'asam',   strong:false, formula:'Asam klorogenat + asam asetat',  desc:'Kopi mengandung berbagai asam organik. pH 4.5–5.5.' },
   teh:        { name:'Teh',               ph:5.5,  type:'asam',   strong:false, formula:'Asam tanin + asam galat',        desc:'Sedikit asam karena kandungan tanin. pH 5.0–6.0.' },
-  susu:       { name:'Susu Segar',        ph:6.5,  type:'asam',   strong:false, formula:'Asam laktat + kasein',           desc:'Sedikit asam, mendekati netral. pH 6.3–6.8.' },
+  susu:       { name:'Susu Segar',        ph:6.5,  type:'asam',   strong:false, formula:'Asam laktat + kasein',            desc:'Sedikit asam, mendekati netral. pH 6.3–6.8.' },
   air_hujan:  { name:'Air Hujan',         ph:5.6,  type:'asam',   strong:false, formula:'CO₂ + H₂O → H₂CO₃',            desc:'Sedikit asam karena CO₂ atmosfer membentuk H₂CO₃.' },
   air_laut:   { name:'Air Laut',          ph:8.1,  type:'basa',   strong:false, formula:'Buffer karbonat (HCO₃⁻/CO₃²⁻)', desc:'Sedikit basa karena sistem buffer bikarbonat-karbonat.' },
   sabun:      { name:'Larutan Sabun',     ph:9.5,  type:'basa',   strong:false, formula:'RCOO⁻ + H₂O ⇌ RCOOH + OH⁻',   desc:'Sabun adalah garam dari asam lemak + basa kuat. Basa lemah.' },
   deterjen:   { name:'Deterjen',          ph:10.5, type:'basa',   strong:false, formula:'Surfaktan + builder basa',       desc:'Deterjen mengandung fosfat/karbonat. Cukup basa.' },
-  pemutih:    { name:'Pemutih (Bayclin)',  ph:12,   type:'basa',   strong:false, formula:'NaOCl → Na⁺ + OCl⁻',           desc:'Larutan NaOCl. Basa kuat, oksidator, desinfektan.' },
+  pemutih:    { name:'Pemutih (Bayclin)',  ph:12,   type:'basa',   strong:false, formula:'NaOCl → Na⁺ + OCl⁻',            desc:'Larutan NaOCl. Basa kuat, oksidator, desinfektan.' },
   lambung:    { name:'Asam Lambung',      ph:2.0,  type:'asam',   strong:true,  formula:'HCl encer (pH 1.5–3.5)',        desc:'Cairan lambung mengandung HCl dan pepsin. Pencernaan protein.' },
   darah:      { name:'Darah Manusia',     ph:7.4,  type:'basa',   strong:false, formula:'Buffer fosfat + buffer bikarbonat', desc:'pH darah dijaga ketat 7.35–7.45. Penyimpangan = asidosis/alkalosis.' },
   saliva:     { name:'Saliva (Air Liur)', ph:6.8,  type:'asam',   strong:false, formula:'Buffer bikarbonat + musin',      desc:'Sedikit asam. pH bervariasi 6.2–7.6 tergantung kondisi.' },
