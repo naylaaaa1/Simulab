@@ -31,7 +31,7 @@ st.write(
     background: var(--bg);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
+    min-height: 100;
     overflow-x: hidden;
   }
 
